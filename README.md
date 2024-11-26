@@ -1,23 +1,21 @@
-# introducion a  mi proyecto 
->Juego de memoria 
+# Juego de memoria
 
->Estes es un proyecto final para la univercidad que consta de un juego de memoria 
+## Descripción  
+Este es mi proyecto final de la materia de Paginas web de la univercidad.
 
-# Herramientas utilizadas 
+## Instalación  
+1. Clona el repositorio:  
+   ```bash  
+   git clone https://github.com/TheLeon12/proyecto-final
 
-> Visual Estudio Code 
->XXAMPP
+   cd nombre-del-repo  proyecto-final
 
-# Lenguajes de programacion utilizados 
+   npm install  
 
->HTML
->CSS
->JavaScript
->Sql
 
-# Requerimientos 
 
->Es necesario tener el XAMPP Y crear la siguiente base de datos y tabla
+## Uso  
+Para ejecutar el proyecto necesitaras tener Xampp instalado y crear la base de datos:
 
 CREATE DATABASE registroDB;
 USE registroDB;
@@ -30,4 +28,9 @@ CREATE TABLE usuarios (
     contraseña VARCHAR(255)
 );
 
+luego utiliza el siguiente comando:  
+```bash  
+npm start  
 
+# instalacion 
+npm install express body-parser mysql2
