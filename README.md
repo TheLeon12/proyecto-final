@@ -32,5 +32,11 @@ luego utiliza el siguiente comando:
 ```bash  
 npm start  
 
-# instalacion 
+## instalacion 
 npm install express body-parser mysql2
+npm init -y
+npm install express
+
+# para correr el servidor 
+
+node server.js
