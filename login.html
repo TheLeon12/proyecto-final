@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Login</title>
+    <link rel="stylesheet" href="Index.css">
+</head>
+<body>
+    <div class="login-form">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" required>
+
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" placeholder="Contraseña" required>
+
+            <div class="submit-container">
+                <input type="submit" value="Iniciar Sesión">
+            </div>
+        </form>
+        <div class="redirect-text">
+            <p>¿No tienes una cuenta? <a href="registrarse.html">Regístrate</a></p>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const contraseña = document.getElementById('contraseña').value;
+
+            fetch('http://localhost:4000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, contraseña }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Inicio de sesión exitoso') {
+                        // Guardar el nombre del usuario en localStorage
+                        const userName = data.user.nombre;  // Asegúrate de que el servidor devuelve el nombre del usuario
+                        localStorage.setItem('userName', userName);
+
+                        alert('Inicio de sesión exitoso');
+                        window.location.href = 'Html/interface/selecion.html'; // Redirige a la página principal
+                    } else {
+                        alert(data.message); // Muestra el mensaje de error
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Hubo un problema con el servidor.');
+                });
+        });
+    </script>
+</body>
+</html>

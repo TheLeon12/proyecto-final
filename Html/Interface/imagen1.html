@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego</title>
+    <link rel="stylesheet" href="stilos/styles.css">
+</head>
+<body>
+    <main>
+        <section class="secion1">
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <h1>Juego de memoria</h1>
+            <table>
+                <tr>
+                    <td><button id="0" onclick="destapar(0)"></button></td>
+                    <td><button id="1" onclick="destapar(1)"></button></td>
+                    <td><button id="2" onclick="destapar(2)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="3" onclick="destapar(3)"></button></td>
+                    <td><button id="4" onclick="destapar(4)"></button></td>
+                    <td><button id="5" onclick="destapar(5)"></button></td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="secion2">
+            <h2 id="Aciertos" class="estadisticas">Aciertos: 0</h2>
+            <h2 id="t-restante" class="estadisticas">Tiempo: 20 segundos</h2>
+            <h2 id="Movimientos" class="estadisticas">Movimientos: 0</h2>
+        </section>
+    </main>
+
+    <!-- Botones debajo del juego -->
+    <section class="grid-container">
+        <a href="Niveles2.html" id="boton1" class="grid-item">
+            <button>Regresar</button>
+        </a>
+        <a href="imagen1.html" id="boton2" class="grid-item">
+            <button>Reiniciar</button>
+        </a>
+        <a href="imagen2.html" id="boton3" class="grid-item">
+            <button>Aumentar dificultad</button>
+        </a>
+
+        <a href="Niveles2.html" class="grid-item">
+            <button>Selecion de niveles</button>
+        </a>
+    </section>
+    
+    <footer>
+        <p>Juego programado por <a href="https://www.youtube.com/@AlexanderMS">Industria ms</a></p>
+    </footer>
+    <script src="Imagen1.js"></script>
+</body>
+</html>

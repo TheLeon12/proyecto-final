@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="Index.css">
+    <style>
+        /* Estilos para la ventanita de error */
+        .error-popup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h1>Formulario de Registro</h1>
+        <form id="registroForm">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre" required>
+
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" required>
+
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" placeholder="Contraseña" required>
+
+            <div class="submit-container">
+                <input type="submit" value="Registrar">
+            </div>
+        </form>
+        <div class="redirect-text">
+            <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a></p>
+        </div>
+    </div>
+
+    <!-- Ventanita de error -->
+    <div id="errorPopup" class="error-popup"></div>
+
+    <script>
+        // Obtener el formulario y la ventanita de error
+        const formulario = document.getElementById('registroForm');
+        const errorPopup = document.getElementById('errorPopup');
+
+        // Evento para enviar los datos del formulario
+        formulario.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Obtener los valores de los campos
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const email = document.getElementById('email').value;
+            const contraseña = document.getElementById('contraseña').value;
+
+            // Enviar los datos al servidor
+            fetch('http://localhost:4000/registrar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nombre, apellido, email, contraseña })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Usuario registrado correctamente') {
+                    alert('Usuario registrado con éxito');
+                    formulario.reset(); // Limpiar los campos después de un registro 
+                    // Redirigir a la página de inicio de sesión
+                    window.location.href = 'login.html'; 
+                } else {
+                    // Mostrar el mensaje de error como ventanita
+                    showErrorPopup(data.message);
+                    formulario.reset(); 
+                }
+            })
+            .catch(error => {
+                console.error('Error al enviar la solicitud:', error);
+                // Mostrar mensaje de error genérico como ventanita
+                showErrorPopup('Hubo un error al registrar el usuario');
+                formulario.reset(); 
+            });
+        });
+
+        // Función para mostrar la ventanita de error
+        function showErrorPopup(message) {
+            errorPopup.textContent = message;
+            errorPopup.style.display = 'block';
+
+            // Hacer que la ventanita desaparezca después de 5 segundos
+            setTimeout(() => {
+                errorPopup.style.display = 'none';
+            }, 5000); 
+        }
+    </script>
+</body>
+</html>

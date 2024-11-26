@@ -1,0 +1,89 @@
+body {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 21, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    font-family: sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 60px;  /* Aumentado el padding para un formulario más grande */
+    border-radius: 20px;  /* Esquinas más redondeadas */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);  /* Sombra más pronunciada */
+    width: 500px;  /* Ancho más grande */
+}
+
+.login-form h1 {
+    text-align: center;
+    font-size: 36px;  /* Aumentado el tamaño de la fuente */
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 12px;  /* Más espacio entre etiquetas y campos */
+    font-size: 16px;  /* Fuente más grande */
+    text-align: center;
+}
+
+.login-form input {
+    width: 90%;
+    padding: 16px;  /* Más padding para campos más grandes */
+    margin-bottom: 24px;  /* Más espacio entre los campos */
+    border: none;
+    border-radius: 12px;  /* Bordes más redondeados */
+    font-size: 18px;  /* Fuente más grande en los campos */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+.login-form input:focus {
+    outline: none;
+    border: 2px solid rgba(0, 212, 255, 0.8);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.submit-container {
+    text-align: center;
+}
+
+.login-form input[type="submit"] {
+    background-color: rgba(9, 21, 121, 1);
+    color: white;
+    font-weight: bold;
+    padding: 16px 40px;  /* Botón más grande */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;  /* Fuente más grande en el botón */
+    transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: rgba(0, 212, 255, 1);
+}
+
+.redirect-text {
+    text-align: center;
+    margin-top: 20px;  /* Más espacio entre el formulario y el texto */
+    font-size: 16px;  /* Fuente más grande */
+}
+
+.redirect-text a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.redirect-text a:hover {
+    color: #0056b3;
+}
