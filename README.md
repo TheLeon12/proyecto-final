@@ -15,7 +15,7 @@ Este es mi proyecto final de la materia de Paginas web de la univercidad.
 
 
 ## Uso  
-Para ejecutar el proyecto necesitaras tener Xampp instalado y crear la base de datos:
+Para ejecutar el proyecto necesitaras tener Xampp instalado con la opcion de Apache y MySql activos, y crear la base de datos:
 
 CREATE DATABASE registroDB;
 USE registroDB;
